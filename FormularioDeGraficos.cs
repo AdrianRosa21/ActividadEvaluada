@@ -16,5 +16,10 @@ namespace ActividadEvaluada
         {
             InitializeComponent();
         }
+
+        private void FormularioDeGraficos_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

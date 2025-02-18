@@ -14,9 +14,12 @@ namespace ActividadEvaluada
     public partial class FormularioEntradaDatos : Form
     {
         private double[,] matrizTemperaturas;
-        public FormularioEntradaDatos(double[,] matrizTemperaturas)
+        private double[,] matrizPrecipitaciones;
+        public FormularioEntradaDatos(double[,] matrizTemperaturas, double[,] matrizPrecipitaciones)
         {
             InitializeComponent();
+            
+            this.matrizPrecipitaciones = matrizPrecipitaciones;
             this.matrizTemperaturas = matrizTemperaturas;//Se declara porque viene de otro form
         }
 
@@ -27,7 +30,7 @@ namespace ActividadEvaluada
             cmbMeses.Text = "Enero";//12 meses
             cmbMeses.DropDownStyle = ComboBoxStyle.DropDownList;
             txtTemperatura.PlaceholderText = "Ingrese la temperatura";//Esto hace que se coloque sobre el texto como en html
-
+            txtPrecipitacion.PlaceholderText = "Indique la precipitación";
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -35,9 +38,9 @@ namespace ActividadEvaluada
             // Obtener índices seleccionados
             int indiceRegion = cmbRegion.SelectedIndex;
             int indiceMes = cmbMeses.SelectedIndex;
-
+            
             // Validar que se hayan seleccionado región y mes
-            if ((indiceRegion == -1 || indiceMes == -1) || (indiceRegion>10 || indiceMes>12) )
+            if (indiceRegion == -1 || indiceMes == -1)
             {
                 MessageBox.Show("Seleccione una región y un mes.");
                 return;
@@ -55,22 +58,35 @@ namespace ActividadEvaluada
              10  Valle
              */
 
-            // Validar que la temperatura sea un número
+            
             if (!double.TryParse(txtTemperatura.Text, out double temperatura))
             {
                 MessageBox.Show("Ingrese una temperatura válida.");
                 return;
             }
 
+            // Validar que la precipitación sea un número valida hasta si no se puede convertir por eso es el mejor :3
+            if (!double.TryParse(txtPrecipitacion.Text, out double precipitacion))
+            {
+                MessageBox.Show("Ingrese una precipitacion válida.");
+                return;
+            }
+            
+            matrizPrecipitaciones[indiceRegion,indiceMes] = precipitacion;
             // Guardar en la matriz
             matrizTemperaturas[indiceRegion, indiceMes] = temperatura;
 
-            MessageBox.Show("Datos guardados correctamente.", "Aprobado",MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Datos guardados correctamente.", "Aprobado", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void btnRegresar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void txtTemperatura_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

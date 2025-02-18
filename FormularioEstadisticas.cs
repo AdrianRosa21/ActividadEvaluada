@@ -12,9 +12,23 @@ namespace ActividadEvaluada
 {
     public partial class FormularioEstadisticas : Form
     {
-        public FormularioEstadisticas()
+        private double[,] matrizTemperaturas;
+        private double[,] matrizPrecipitaciones;
+        public FormularioEstadisticas(double[,] matrizTemperaturas, double[,] matrizPrecipitaciones)
         {
             InitializeComponent();
+            this.matrizPrecipitaciones = matrizPrecipitaciones;
+            this.matrizTemperaturas = matrizTemperaturas;
+        }
+
+        private void FormularioEstadisticas_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }
