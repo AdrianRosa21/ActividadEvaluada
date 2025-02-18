@@ -42,9 +42,10 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 15F);
             label1.ForeColor = Color.Black;
-            label1.Location = new Point(187, 9);
+            label1.Location = new Point(147, 9);
+            label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(433, 41);
+            label1.Size = new Size(287, 28);
             label1.TabIndex = 0;
             label1.Text = "Programa de Clima Multiregión";
             // 
@@ -55,9 +56,11 @@
             groupBox1.Controls.Add(btnRedirigirEstadistica);
             groupBox1.Controls.Add(btnRedirigirIngresar);
             groupBox1.Font = new Font("Segoe UI", 12F);
-            groupBox1.Location = new Point(45, 70);
+            groupBox1.Location = new Point(32, 42);
+            groupBox1.Margin = new Padding(2, 2, 2, 2);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(710, 345);
+            groupBox1.Padding = new Padding(2, 2, 2, 2);
+            groupBox1.Size = new Size(497, 207);
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
             groupBox1.Text = "Opciones";
@@ -65,9 +68,10 @@
             // btnSalir
             // 
             btnSalir.Font = new Font("Segoe UI", 11F);
-            btnSalir.Location = new Point(435, 202);
+            btnSalir.Location = new Point(304, 121);
+            btnSalir.Margin = new Padding(2, 2, 2, 2);
             btnSalir.Name = "btnSalir";
-            btnSalir.Size = new Size(217, 49);
+            btnSalir.Size = new Size(152, 29);
             btnSalir.TabIndex = 3;
             btnSalir.Text = "button4";
             btnSalir.UseVisualStyleBackColor = true;
@@ -77,9 +81,10 @@
             // 
             btnRedirigirGraficos.Enabled = false;
             btnRedirigirGraficos.Font = new Font("Segoe UI", 11F);
-            btnRedirigirGraficos.Location = new Point(102, 202);
+            btnRedirigirGraficos.Location = new Point(71, 121);
+            btnRedirigirGraficos.Margin = new Padding(2, 2, 2, 2);
             btnRedirigirGraficos.Name = "btnRedirigirGraficos";
-            btnRedirigirGraficos.Size = new Size(217, 49);
+            btnRedirigirGraficos.Size = new Size(152, 29);
             btnRedirigirGraficos.TabIndex = 2;
             btnRedirigirGraficos.Text = "button3";
             btnRedirigirGraficos.UseVisualStyleBackColor = true;
@@ -88,9 +93,10 @@
             // 
             btnRedirigirEstadistica.Enabled = false;
             btnRedirigirEstadistica.Font = new Font("Segoe UI", 11F);
-            btnRedirigirEstadistica.Location = new Point(435, 74);
+            btnRedirigirEstadistica.Location = new Point(304, 44);
+            btnRedirigirEstadistica.Margin = new Padding(2, 2, 2, 2);
             btnRedirigirEstadistica.Name = "btnRedirigirEstadistica";
-            btnRedirigirEstadistica.Size = new Size(217, 49);
+            btnRedirigirEstadistica.Size = new Size(152, 29);
             btnRedirigirEstadistica.TabIndex = 1;
             btnRedirigirEstadistica.Text = "button2";
             btnRedirigirEstadistica.UseVisualStyleBackColor = true;
@@ -98,9 +104,10 @@
             // btnRedirigirIngresar
             // 
             btnRedirigirIngresar.Font = new Font("Segoe UI", 11F);
-            btnRedirigirIngresar.Location = new Point(102, 74);
+            btnRedirigirIngresar.Location = new Point(71, 44);
+            btnRedirigirIngresar.Margin = new Padding(2, 2, 2, 2);
             btnRedirigirIngresar.Name = "btnRedirigirIngresar";
-            btnRedirigirIngresar.Size = new Size(217, 49);
+            btnRedirigirIngresar.Size = new Size(152, 29);
             btnRedirigirIngresar.TabIndex = 0;
             btnRedirigirIngresar.Text = "button1";
             btnRedirigirIngresar.UseVisualStyleBackColor = true;
@@ -108,17 +115,20 @@
             // 
             // Main
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(560, 270);
             Controls.Add(groupBox1);
             Controls.Add(label1);
+            Margin = new Padding(2, 2, 2, 2);
             Name = "Main";
             Text = "Main";
             Load += Form1_Load;
+            Activated += Main_Activated; 
             groupBox1.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
+
         }
 
         #endregion
