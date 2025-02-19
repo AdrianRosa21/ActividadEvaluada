@@ -9,7 +9,7 @@ namespace ActividadEvaluada
         {
             InitializeComponent();
             // Establecer la imagen de fondo del formulario
-            this.BackgroundImage = Image.FromFile("C:\\Users\\dell.ARRUPE\\source\\repos\\ActividadEvaluada\\Imagenes\\fondo.jpg"); // Cambia la ruta
+            this.BackgroundImage = Image.FromFile("C:\\Users\\adrian.rosa\\Source\\Repos\\ActividadEvaluada\\Imagenes\\fondo.jpg"); // Cambia la ruta
             this.BackgroundImageLayout = ImageLayout.Stretch;
             // Hacer el fondo del GroupBox transparente
             groupBox1.BackColor = Color.Transparent;
@@ -84,12 +84,18 @@ namespace ActividadEvaluada
         {
             FormularioEstadisticas form2 = new FormularioEstadisticas(matrizTemperaturas, matrizPrecipitaciones);
             form2.ShowDialog(); // Espera a que se cierre antes de continuar por eso invoco este metodo en vez del otro
-            ActualizarEstadoBotones();
+            
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnRedirigirGraficos_Click(object sender, EventArgs e)
+        {
+            FormularioDeGraficos form3 = new FormularioDeGraficos(matrizTemperaturas, matrizPrecipitaciones);
+            form3.ShowDialog();
         }
     }
 }

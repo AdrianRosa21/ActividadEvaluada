@@ -28,10 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormularioEstadisticas));
             groupBox1 = new GroupBox();
-            dgDatos = new DataGridView();
-            btnCalcular = new Button();
             btnRegresar = new Button();
+            btnCalcular = new Button();
+            dgDatos = new DataGridView();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgDatos).BeginInit();
             SuspendLayout();
@@ -41,51 +42,62 @@
             groupBox1.Controls.Add(btnRegresar);
             groupBox1.Controls.Add(btnCalcular);
             groupBox1.Controls.Add(dgDatos);
-            groupBox1.Location = new Point(26, 23);
+            groupBox1.Font = new Font("Segoe UI", 12F);
+            groupBox1.Location = new Point(18, 14);
+            groupBox1.Margin = new Padding(2);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(961, 553);
+            groupBox1.Padding = new Padding(2);
+            groupBox1.Size = new Size(673, 332);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "Estadisticas";
             groupBox1.Enter += groupBox1_Enter;
             // 
-            // dgDatos
+            // btnRegresar
             // 
-            dgDatos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgDatos.Location = new Point(19, 102);
-            dgDatos.Name = "dgDatos";
-            dgDatos.RowHeadersWidth = 62;
-            dgDatos.Size = new Size(923, 392);
-            dgDatos.TabIndex = 0;
+            btnRegresar.Font = new Font("Segoe UI", 12F);
+            btnRegresar.Location = new Point(419, 272);
+            btnRegresar.Margin = new Padding(2);
+            btnRegresar.Name = "btnRegresar";
+            btnRegresar.Size = new Size(160, 39);
+            btnRegresar.TabIndex = 2;
+            btnRegresar.Text = "Regresar";
+            btnRegresar.UseVisualStyleBackColor = true;
+            btnRegresar.Click += btnRegresar_Click;
             // 
             // btnCalcular
             // 
             btnCalcular.Font = new Font("Segoe UI", 12F);
-            btnCalcular.Location = new Point(181, 30);
+            btnCalcular.Location = new Point(115, 272);
+            btnCalcular.Margin = new Padding(2);
             btnCalcular.Name = "btnCalcular";
-            btnCalcular.Size = new Size(228, 44);
+            btnCalcular.Size = new Size(160, 39);
             btnCalcular.TabIndex = 1;
             btnCalcular.Text = "Calcular";
             btnCalcular.UseVisualStyleBackColor = true;
+            btnCalcular.Click += btnCalcular_Click;
             // 
-            // btnRegresar
+            // dgDatos
             // 
-            btnRegresar.Font = new Font("Segoe UI", 12F);
-            btnRegresar.Location = new Point(566, 30);
-            btnRegresar.Name = "btnRegresar";
-            btnRegresar.Size = new Size(228, 44);
-            btnRegresar.TabIndex = 2;
-            btnRegresar.Text = "Regresar";
-            btnRegresar.UseVisualStyleBackColor = true;
+            dgDatos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgDatos.Location = new Point(13, 20);
+            dgDatos.Margin = new Padding(2);
+            dgDatos.Name = "dgDatos";
+            dgDatos.RowHeadersWidth = 62;
+            dgDatos.Size = new Size(646, 235);
+            dgDatos.TabIndex = 0;
             // 
             // FormularioEstadisticas
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1009, 588);
+            BackColor = SystemColors.GradientActiveCaption;
+            ClientSize = new Size(706, 353);
             Controls.Add(groupBox1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            Margin = new Padding(2);
             Name = "FormularioEstadisticas";
-            Text = "FormularioEstadisticas";
+            Text = "Estadisticas";
             Load += FormularioEstadisticas_Load;
             groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgDatos).EndInit();

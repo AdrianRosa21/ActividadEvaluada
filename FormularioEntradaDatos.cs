@@ -22,9 +22,29 @@ namespace ActividadEvaluada
             this.matrizPrecipitaciones = matrizPrecipitaciones;
             this.matrizTemperaturas = matrizTemperaturas;//Se declara porque viene de otro form
         }
+        private void DeclararBotonSalir()
+        {
+            btnRegresar.BackColor = Color.FromArgb(255, 204, 204); // Color pastel para
+            btnRegresar.FlatStyle = FlatStyle.Flat;
+            btnRegresar.FlatAppearance.BorderColor = Color.FromArgb(255, 150, 150);
+            btnRegresar.FlatAppearance.BorderSize = 2;
+            btnRegresar.ForeColor = Color.Black;
+        }
+        private void DeclararBotonCalcular()
+        {
 
+
+            btnGuardar.BackColor = Color.FromArgb(173, 216, 230); // Color pastel azul
+            btnGuardar.ForeColor = Color.Black;
+            btnGuardar.FlatStyle = FlatStyle.Flat;
+            btnGuardar.FlatAppearance.BorderSize = 0;
+
+
+        }
         private void FormularioEntradaDatos_Load(object sender, EventArgs e)
         {
+            DeclararBotonSalir();
+            DeclararBotonCalcular();
             cmbRegion.Text = "Norte";//10 regiones
             cmbRegion.DropDownStyle = ComboBoxStyle.DropDownList;//Esto hace que el usuario escriba o borre texto manualmente
             cmbMeses.Text = "Enero";//12 meses
@@ -71,7 +91,14 @@ namespace ActividadEvaluada
                 MessageBox.Show("Ingrese una precipitacion válida.");
                 return;
             }
-            
+
+            // Verificar si ya existe
+            if (matrizTemperaturas[indiceRegion, indiceMes] != 0 || matrizPrecipitaciones[indiceRegion, indiceMes] != 0)
+            {
+                MessageBox.Show("No se pueden sobrescribir los datos. Ya existen datos en esta posición.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             matrizPrecipitaciones[indiceRegion,indiceMes] = precipitacion;
             // Guardar en la matriz
             matrizTemperaturas[indiceRegion, indiceMes] = temperatura;
