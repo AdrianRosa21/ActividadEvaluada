@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormularioEntradaDatos));
             groupBox1 = new GroupBox();
+            label8 = new Label();
             label7 = new Label();
             txtPrecipitacion = new TextBox();
             label6 = new Label();
@@ -48,6 +49,7 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(label8);
             groupBox1.Controls.Add(label7);
             groupBox1.Controls.Add(txtPrecipitacion);
             groupBox1.Controls.Add(label6);
@@ -67,6 +69,17 @@
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "Ingreso de datos";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI", 7F);
+            label8.ForeColor = SystemColors.InfoText;
+            label8.Location = new Point(278, 190);
+            label8.Name = "label8";
+            label8.Size = new Size(358, 12);
+            label8.TabIndex = 12;
+            label8.Text = "(Si ingresa una temperatura que es 0, porfavor utilizar el decimal de temperatura)";
             // 
             // label7
             // 
@@ -182,11 +195,11 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 12F);
-            label3.ForeColor = SystemColors.Highlight;
-            label3.Location = new Point(191, 26);
+            label3.Font = new Font("Segoe UI", 15F);
+            label3.ForeColor = SystemColors.Desktop;
+            label3.Location = new Point(147, 26);
             label3.Name = "label3";
-            label3.Size = new Size(421, 21);
+            label3.Size = new Size(529, 28);
             label3.TabIndex = 1;
             label3.Text = "Porfavor rellene la información con los datos que se le pide.";
             // 
@@ -194,6 +207,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.GradientActiveCaption;
             ClientSize = new Size(800, 428);
             Controls.Add(label3);
             Controls.Add(groupBox1);
@@ -223,5 +237,6 @@
         private Label label6;
         private TextBox txtPrecipitacion;
         private Label label7;
+        private Label label8;
     }
 }

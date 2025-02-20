@@ -96,7 +96,7 @@
             // 
             btnRedirigirEstadistica.Enabled = false;
             btnRedirigirEstadistica.Font = new Font("Segoe UI", 11F);
-            btnRedirigirEstadistica.Location = new Point(365, 55);
+            btnRedirigirEstadistica.Location = new Point(365, 113);
             btnRedirigirEstadistica.Margin = new Padding(2);
             btnRedirigirEstadistica.Name = "btnRedirigirEstadistica";
             btnRedirigirEstadistica.Size = new Size(164, 37);
@@ -108,7 +108,7 @@
             // btnRedirigirIngresar
             // 
             btnRedirigirIngresar.Font = new Font("Segoe UI", 11F);
-            btnRedirigirIngresar.Location = new Point(83, 55);
+            btnRedirigirIngresar.Location = new Point(83, 113);
             btnRedirigirIngresar.Margin = new Padding(2);
             btnRedirigirIngresar.Name = "btnRedirigirIngresar";
             btnRedirigirIngresar.Size = new Size(164, 37);

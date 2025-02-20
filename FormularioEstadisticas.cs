@@ -25,6 +25,8 @@ namespace ActividadEvaluada
         {
             DeclararBotonSalir();
             DeclararBotonCalcular();
+            cmbRegion.Text = "Norte";
+            cmbRegion.DropDownStyle = ComboBoxStyle.DropDownList;
             // Configurar las columnas del DataGridView
             dgDatos.ReadOnly = true;
             dgDatos.Columns.Add("Region", "Región");
@@ -40,7 +42,7 @@ namespace ActividadEvaluada
         private void DeclararBotonCalcular()
         {
             btnCalcular.BackColor = Color.FromArgb(173, 216, 230); // Color pastel azul
-            btnRegresar.FlatAppearance.BorderColor = Color.FromArgb(25, 25, 112);
+            btnCalcular.FlatAppearance.BorderColor = Color.FromArgb(255, 150, 150);
             btnCalcular.ForeColor = Color.Black;
             btnCalcular.FlatStyle = FlatStyle.Flat;
             btnCalcular.FlatAppearance.BorderSize = 0;
@@ -57,34 +59,32 @@ namespace ActividadEvaluada
 
         private void btnCalcular_Click(object sender, EventArgs e)
         {
+            // Limpiar DataGridView y ListBox al iniciar
             dgDatos.Rows.Clear();
             listBox1.Items.Clear();
             listBox2.Items.Clear();
-            listBox3.Items.Clear(); // Limpiar el ListBox de promedios
+            listBox3.Items.Clear();
 
             // Obtener la región seleccionada en el ComboBox
             int regionSeleccionada = cmbRegion.SelectedIndex;
-
-            // Verificar si se seleccionó una región válida
-            if (regionSeleccionada < 0 || regionSeleccionada >= matrizTemperaturas.GetLength(0))
-            {
-                MessageBox.Show("Selecciona una región válida.");
-                return;
-            }
-
-            // Obtener el nombre de la región seleccionada
             string nombreRegion = ObtenerNombreRegion(regionSeleccionada);
 
-            // Lista para almacenar temperaturas de la región seleccionada
+            // Variables para promedios
+            double sumaTemperatura = 0;
+            double sumaPrecipitacion = 0;
+            int contadorTemperatura = 0;
+            int contadorPrecipitacion = 0;
+
+            // Lista para almacenar TODAS las temperaturas de todas las regiones
             List<Tuple<string, string, double>> temperaturas = new List<Tuple<string, string, double>>();
 
-            // Recorrer los meses para la región seleccionada
+            //  MOSTRAR SOLO LOS 12 MESES DE LA REGIÓN SELECCIONADA 
             for (int mes = 0; mes < matrizTemperaturas.GetLength(1); mes++)
             {
                 double temperatura = matrizTemperaturas[regionSeleccionada, mes];
                 double precipitacion = matrizPrecipitaciones[regionSeleccionada, mes];
 
-                // Agregar una fila al DataGridView para cada mes
+                // Agregar la fila al DataGridView
                 int indice = dgDatos.Rows.Add(
                     nombreRegion,
                     ObtenerNombreMes(mes),
@@ -92,58 +92,26 @@ namespace ActividadEvaluada
                     precipitacion
                 );
 
-                // Resaltar temperaturas altas
+                // Resaltar temperaturas mayores a 30C°
                 if (temperatura > 30)
                 {
-                    dgDatos.Rows[indice].Cells["Temperatura"].Style.BackColor = Color.Red;
-                    dgDatos.Rows[indice].Cells["Temperatura"].Style.ForeColor = Color.White;
+                    dgDatos.Rows[indice].Cells[2].Style.BackColor = Color.Red;
+                    dgDatos.Rows[indice].Cells[2].Style.ForeColor = Color.White;
                 }
 
-                // Resaltar precipitaciones altas
+                // Resaltar precipitaciones mayores a 50mm
                 if (precipitacion > 50)
                 {
-                    dgDatos.Rows[indice].Cells["Precipitacion"].Style.BackColor = Color.Blue;
-                    dgDatos.Rows[indice].Cells["Precipitacion"].Style.ForeColor = Color.White;
+                    dgDatos.Rows[indice].Cells[3].Style.BackColor = Color.Blue;
+                    dgDatos.Rows[indice].Cells[3].Style.ForeColor = Color.White;
                 }
 
-                // Agregar a la lista de temperaturas para ordenar después
-                temperaturas.Add(new Tuple<string, string, double>(nombreRegion, ObtenerNombreMes(mes), temperatura));
-            }
-
-            // Ordenar temperaturas de menor a mayor
-            temperaturas.Sort((x, y) => x.Item3.CompareTo(y.Item3));
-
-            // Llenar ListBox de menor a mayor
-            foreach (var temp in temperaturas)
-            {
-                listBox1.Items.Add($"{temp.Item1} - {temp.Item2}: {temp.Item3}°C");
-            }
-
-            // Llenar ListBox de mayor a menor
-            for (int i = temperaturas.Count - 1; i >= 0; i--)
-            {
-                listBox2.Items.Add($"{temperaturas[i].Item1} - {temperaturas[i].Item2}: {temperaturas[i].Item3}°C");
-            }
-
-            // Calcular promedios para la región seleccionada
-            double sumaTemperatura = 0;
-            double sumaPrecipitacion = 0;
-            int contadorTemperatura = 0; // Contador para temperaturas válidas
-            int contadorPrecipitacion = 0; // Contador para precipitaciones válidas
-
-            for (int mes = 0; mes < matrizTemperaturas.GetLength(1); mes++)
-            {
-                double temperatura = matrizTemperaturas[regionSeleccionada, mes];
-                double precipitacion = matrizPrecipitaciones[regionSeleccionada, mes];
-
-                // Sumar para el promedio solo si la temperatura no es 0
+                // Acumular para promedios
                 if (temperatura != 0)
                 {
                     sumaTemperatura += temperatura;
                     contadorTemperatura++;
                 }
-
-                // Sumar para el promedio solo si la precipitación no es 0
                 if (precipitacion != 0)
                 {
                     sumaPrecipitacion += precipitacion;
@@ -151,7 +119,48 @@ namespace ActividadEvaluada
                 }
             }
 
-            // Calcular promedios (solo si hay valores válidos)
+            //  LISTBOX 1 Y 2: TODAS LAS REGIONES Y MESES 
+            for (int region = 0; region < matrizTemperaturas.GetLength(0); region++)
+            {
+                for (int mes = 0; mes < matrizTemperaturas.GetLength(1); mes++)
+                {
+                    double temperatura = matrizTemperaturas[region, mes];
+                    string nombreReg = ObtenerNombreRegion(region);
+                    string nombreMes = ObtenerNombreMes(mes);
+
+                    temperaturas.Add(new Tuple<string, string, double>(
+                        nombreReg, nombreMes, temperatura
+                    ));
+                }
+            }
+
+            // ORDENAR TODAS LAS TEMPERATURAS (Bubble Sort)
+            for (int i = 0; i < temperaturas.Count; i++)
+            {
+                for (int j = i + 1; j < temperaturas.Count; j++)
+                {
+                    if (temperaturas[i].Item3 > temperaturas[j].Item3)
+                    {
+                        var temp = temperaturas[i];
+                        temperaturas[i] = temperaturas[j];
+                        temperaturas[j] = temp;
+                    }
+                }
+            }
+
+            // Llenar listBox1 (menor a mayor)
+            for (int i = 0; i < temperaturas.Count; i++)
+            {
+                listBox1.Items.Add($"{temperaturas[i].Item1} - {temperaturas[i].Item2}: {temperaturas[i].Item3}°C");
+            }
+
+            // Llenar listBox2 (mayor a menor)
+            for (int i = temperaturas.Count - 1; i >= 0; i--)
+            {
+                listBox2.Items.Add($"{temperaturas[i].Item1} - {temperaturas[i].Item2}: {temperaturas[i].Item3}°C");
+            }
+
+            // Calcular promedios
             double promedioTemperatura = 0;
             double promedioPrecipitacion = 0;
 
@@ -170,13 +179,13 @@ namespace ActividadEvaluada
             listBox3.Items.Add($"Temperatura Promedio = {promedioTemperatura:F2}°C");
             listBox3.Items.Add($"Precipitación Promedio = {promedioPrecipitacion:F2}mm");
 
-            // Decorar los ListBox
+            // Decorar ListBox
             DecorarListBox(listBox1, Color.LightBlue);
             DecorarListBox(listBox2, Color.LightCoral);
-            DecorarListBox(listBox3, Color.LightGreen); // Color para el ListBox de promedios
+            DecorarListBox(listBox3, Color.LightGreen);
         }
 
-        
+
         private void DecorarListBox(ListBox listBox, Color color)
         {
             for (int i = 0; i < listBox.Items.Count; i++)
@@ -192,34 +201,15 @@ namespace ActividadEvaluada
             string[] regiones = { "Norte", "Sur", "Este", "Oeste", "Centro", "Costa", "Montaña", "Selva", "Desierto", "Valle" };
             return regiones[indice];
         }
-
-        // Método para obtener el nombre del mes según el índice
-        private string ObtenerNombreMes(int indice)
+        private string ObtenerNombreMes(int mes)
         {
             string[] meses = { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" };
-            return meses[indice];
+            return meses[mes];
         }
 
         private void btnRegresar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
-        /*
-         reciclar este codigo
-        
-            // Llenar ListBox de menor a mayor
-            for (int i = 0; i < temperaturas.Count; i++)
-            {
-                listBox1.Items.Add($"{temperaturas[i].Item1} - {temperaturas[i].Item2}: {temperaturas[i].Item3}°C");
-            }
-
-            // Llenar ListBox de mayor a menor
-            for (int i = temperaturas.Count - 1; i >= 0; i--)
-            {
-                listBox2.Items.Add($"{temperaturas[i].Item1} - {temperaturas[i].Item2}: {temperaturas[i].Item3}°C");
-            }
-
-         */
     }
 }

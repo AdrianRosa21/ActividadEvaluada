@@ -9,7 +9,7 @@ namespace ActividadEvaluada
         {
             InitializeComponent();
             // Establecer la imagen de fondo del formulario
-            this.BackgroundImage = Image.FromFile("C:\\Users\\dell.ARRUPE\\source\\repos\\ActividadEvaluada\\Imagenes\\fondo.jpg"); // Cambia la ruta
+            this.BackgroundImage = Image.FromFile("C:\\Users\\adrian.rosa\\Source\\Repos\\ActividadEvaluada\\Imagenes\\fondo.jpg"); // Cambia la ruta
             this.BackgroundImageLayout = ImageLayout.Stretch;
             // Hacer el fondo del GroupBox transparente
             groupBox1.BackColor = Color.Transparent;

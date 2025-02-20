@@ -20,7 +20,7 @@ namespace ActividadEvaluada
             InitializeComponent();
             
             this.matrizPrecipitaciones = matrizPrecipitaciones;
-            this.matrizTemperaturas = matrizTemperaturas;//Se declara porque viene de otro form
+            this.matrizTemperaturas = matrizTemperaturas;
         }
         private void DeclararBotonSalir()
         {
@@ -33,8 +33,8 @@ namespace ActividadEvaluada
         private void DeclararBotonCalcular()
         {
 
-
-            btnGuardar.BackColor = Color.FromArgb(173, 216, 230); // Color pastel azul
+            btnGuardar.FlatAppearance.BorderColor = Color.FromArgb(255, 150, 150);
+            btnGuardar.BackColor = Color.FromArgb(189, 236, 182); // Color pastel azul
             btnGuardar.ForeColor = Color.Black;
             btnGuardar.FlatStyle = FlatStyle.Flat;
             btnGuardar.FlatAppearance.BorderSize = 0;
@@ -49,7 +49,7 @@ namespace ActividadEvaluada
             cmbRegion.DropDownStyle = ComboBoxStyle.DropDownList;//Esto hace que el usuario escriba o borre texto manualmente
             cmbMeses.Text = "Enero";//12 meses
             cmbMeses.DropDownStyle = ComboBoxStyle.DropDownList;
-            txtTemperatura.PlaceholderText = "Ingrese la temperatura";//Esto hace que se coloque sobre el texto como en html
+            txtTemperatura.PlaceholderText = "Ingrese la temperatura";
             txtPrecipitacion.PlaceholderText = "Indique la precipitación";
         }
 
@@ -85,7 +85,7 @@ namespace ActividadEvaluada
                 return;
             }
 
-            // Validar que la precipitación sea un número valida hasta si no se puede convertir por eso es el mejor :3
+            // Validar que la precipitación sea un número valida si no se puede convertir 
             if (!double.TryParse(txtPrecipitacion.Text, out double precipitacion))
             {
                 MessageBox.Show("Ingrese una precipitacion válida.");
