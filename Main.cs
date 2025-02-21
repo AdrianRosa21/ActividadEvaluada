@@ -9,7 +9,7 @@ namespace ActividadEvaluada
         {
             InitializeComponent();
             // Establecer la imagen de fondo del formulario
-            this.BackgroundImage = Image.FromFile("C:\\Users\\adrian.rosa\\Source\\Repos\\ActividadEvaluada\\Imagenes\\fondo.jpg"); // Cambia la ruta
+            this.BackgroundImage = Image.FromFile("C:\\Users\\dell.ARRUPE\\source\\repos\\ActividadEvaluada\\Imagenes\\fondo.jpg"); // Cambia la ruta
             this.BackgroundImageLayout = ImageLayout.Stretch;
             // Hacer el fondo del GroupBox transparente
             groupBox1.BackColor = Color.Transparent;
@@ -20,7 +20,10 @@ namespace ActividadEvaluada
         private void Form1_Load(object sender, EventArgs e)
         {
             btnRedirigirIngresar.Text = "Ingresar Datos";
-
+            btnRedirigirEstadistica.ForeColor = Color.Black;
+            btnRedirigirIngresar.ForeColor = Color.Black;
+            btnRedirigirGraficos.ForeColor = Color.Black;
+            btnSalir.ForeColor = Color.Black;
             btnRedirigirEstadistica.Text = "Ver Estadísticas";
             btnRedirigirGraficos.Text = "Ver Gráficos";
             btnSalir.Text = "Salir";

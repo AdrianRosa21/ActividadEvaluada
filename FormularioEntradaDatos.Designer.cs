@@ -63,9 +63,11 @@
             groupBox1.Controls.Add(cmbRegion);
             groupBox1.Controls.Add(label1);
             groupBox1.Font = new Font("Segoe UI", 12F);
-            groupBox1.Location = new Point(40, 69);
+            groupBox1.Location = new Point(57, 115);
+            groupBox1.Margin = new Padding(4, 5, 4, 5);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(719, 351);
+            groupBox1.Padding = new Padding(4, 5, 4, 5);
+            groupBox1.Size = new Size(1027, 585);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "Ingreso de datos";
@@ -75,9 +77,10 @@
             label8.AutoSize = true;
             label8.Font = new Font("Segoe UI", 7F);
             label8.ForeColor = SystemColors.InfoText;
-            label8.Location = new Point(278, 190);
+            label8.Location = new Point(398, 307);
+            label8.Margin = new Padding(4, 0, 4, 0);
             label8.Name = "label8";
-            label8.Size = new Size(358, 12);
+            label8.Size = new Size(504, 19);
             label8.TabIndex = 12;
             label8.Text = "(Si ingresa una temperatura que es 0, porfavor utilizar el decimal de temperatura)";
             // 
@@ -86,25 +89,28 @@
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI", 8F);
             label7.ForeColor = SystemColors.InfoText;
-            label7.Location = new Point(380, 250);
+            label7.Location = new Point(559, 407);
+            label7.Margin = new Padding(4, 0, 4, 0);
             label7.Name = "label7";
-            label7.Size = new Size(146, 13);
+            label7.Size = new Size(198, 21);
             label7.TabIndex = 11;
-            label7.Text = "(Ingrese un dato numerico)";
+            label7.Text = "(Ingrese un dato numérico)";
             // 
             // txtPrecipitacion
             // 
-            txtPrecipitacion.Location = new Point(301, 218);
+            txtPrecipitacion.Location = new Point(430, 363);
+            txtPrecipitacion.Margin = new Padding(4, 5, 4, 5);
             txtPrecipitacion.Name = "txtPrecipitacion";
-            txtPrecipitacion.Size = new Size(303, 29);
+            txtPrecipitacion.Size = new Size(431, 39);
             txtPrecipitacion.TabIndex = 10;
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(80, 222);
+            label6.Location = new Point(114, 370);
+            label6.Margin = new Padding(4, 0, 4, 0);
             label6.Name = "label6";
-            label6.Size = new Size(199, 21);
+            label6.Size = new Size(306, 32);
             label6.TabIndex = 9;
             label6.Text = "Posibilidad de precipitación";
             // 
@@ -113,17 +119,19 @@
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 8F);
             label5.ForeColor = SystemColors.InfoText;
-            label5.Location = new Point(313, 177);
+            label5.Location = new Point(462, 286);
+            label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
-            label5.Size = new Size(280, 13);
+            label5.Size = new Size(381, 21);
             label5.TabIndex = 8;
             label5.Text = "(La temperatura ingresada es requerida en grados C°)";
             // 
             // btnGuardar
             // 
-            btnGuardar.Location = new Point(204, 298);
+            btnGuardar.Location = new Point(291, 497);
+            btnGuardar.Margin = new Padding(4, 5, 4, 5);
             btnGuardar.Name = "btnGuardar";
-            btnGuardar.Size = new Size(112, 35);
+            btnGuardar.Size = new Size(160, 58);
             btnGuardar.TabIndex = 7;
             btnGuardar.Text = "Guardar";
             btnGuardar.UseVisualStyleBackColor = true;
@@ -131,9 +139,10 @@
             // 
             // btnRegresar
             // 
-            btnRegresar.Location = new Point(469, 298);
+            btnRegresar.Location = new Point(670, 497);
+            btnRegresar.Margin = new Padding(4, 5, 4, 5);
             btnRegresar.Name = "btnRegresar";
-            btnRegresar.Size = new Size(112, 35);
+            btnRegresar.Size = new Size(160, 58);
             btnRegresar.TabIndex = 6;
             btnRegresar.Text = "Regresar";
             btnRegresar.UseVisualStyleBackColor = true;
@@ -142,17 +151,19 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(80, 149);
+            label4.Location = new Point(114, 248);
+            label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
-            label4.Size = new Size(97, 21);
+            label4.Size = new Size(148, 32);
             label4.TabIndex = 5;
             label4.Text = "Temperatura";
             // 
             // txtTemperatura
             // 
-            txtTemperatura.Location = new Point(301, 145);
+            txtTemperatura.Location = new Point(430, 242);
+            txtTemperatura.Margin = new Padding(4, 5, 4, 5);
             txtTemperatura.Name = "txtTemperatura";
-            txtTemperatura.Size = new Size(303, 29);
+            txtTemperatura.Size = new Size(431, 39);
             txtTemperatura.TabIndex = 4;
             txtTemperatura.TextChanged += txtTemperatura_TextChanged;
             // 
@@ -160,17 +171,19 @@
             // 
             cmbMeses.FormattingEnabled = true;
             cmbMeses.Items.AddRange(new object[] { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" });
-            cmbMeses.Location = new Point(301, 86);
+            cmbMeses.Location = new Point(430, 143);
+            cmbMeses.Margin = new Padding(4, 5, 4, 5);
             cmbMeses.Name = "cmbMeses";
-            cmbMeses.Size = new Size(303, 29);
+            cmbMeses.Size = new Size(431, 40);
             cmbMeses.TabIndex = 3;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(80, 91);
+            label2.Location = new Point(114, 152);
+            label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
-            label2.Size = new Size(54, 21);
+            label2.Size = new Size(82, 32);
             label2.TabIndex = 2;
             label2.Text = "Meses";
             // 
@@ -178,17 +191,19 @@
             // 
             cmbRegion.FormattingEnabled = true;
             cmbRegion.Items.AddRange(new object[] { "Norte", "Sur", "Este", "Oeste", "Centro", "Costa", "Montaña", "Selva", "Desierto", "Valle" });
-            cmbRegion.Location = new Point(301, 36);
+            cmbRegion.Location = new Point(430, 60);
+            cmbRegion.Margin = new Padding(4, 5, 4, 5);
             cmbRegion.Name = "cmbRegion";
-            cmbRegion.Size = new Size(303, 29);
+            cmbRegion.Size = new Size(431, 40);
             cmbRegion.TabIndex = 1;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(80, 41);
+            label1.Location = new Point(114, 68);
+            label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(136, 21);
+            label1.Size = new Size(207, 32);
             label1.TabIndex = 0;
             label1.Text = "Región geográfica";
             // 
@@ -197,21 +212,23 @@
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 15F);
             label3.ForeColor = SystemColors.Desktop;
-            label3.Location = new Point(147, 26);
+            label3.Location = new Point(210, 43);
+            label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
-            label3.Size = new Size(529, 28);
+            label3.Size = new Size(807, 41);
             label3.TabIndex = 1;
             label3.Text = "Porfavor rellene la información con los datos que se le pide.";
             // 
             // FormularioEntradaDatos
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientActiveCaption;
-            ClientSize = new Size(800, 428);
+            ClientSize = new Size(1143, 713);
             Controls.Add(label3);
             Controls.Add(groupBox1);
             Icon = (Icon)resources.GetObject("$this.Icon");
+            Margin = new Padding(4, 5, 4, 5);
             Name = "FormularioEntradaDatos";
             Text = "Ingreso de datos";
             Load += FormularioEntradaDatos_Load;

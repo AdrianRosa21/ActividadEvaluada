@@ -84,7 +84,7 @@ namespace ActividadEvaluada
                 double temperatura = matrizTemperaturas[regionSeleccionada, mes];
                 double precipitacion = matrizPrecipitaciones[regionSeleccionada, mes];
 
-                // Agregar la fila al DataGridView
+                // Agregar la fila al DataGridView EEEEEEEEEEEEE
                 int indice = dgDatos.Rows.Add(
                     nombreRegion,
                     ObtenerNombreMes(mes),
@@ -119,18 +119,22 @@ namespace ActividadEvaluada
                 }
             }
 
-            //  LISTBOX 1 Y 2: TODAS LAS REGIONES Y MESES 
             for (int region = 0; region < matrizTemperaturas.GetLength(0); region++)
             {
                 for (int mes = 0; mes < matrizTemperaturas.GetLength(1); mes++)
                 {
                     double temperatura = matrizTemperaturas[region, mes];
-                    string nombreReg = ObtenerNombreRegion(region);
-                    string nombreMes = ObtenerNombreMes(mes);
 
-                    temperaturas.Add(new Tuple<string, string, double>(
-                        nombreReg, nombreMes, temperatura
-                    ));
+                    // Solo agrega si la temperatura es distinta de 0
+                    if (temperatura != 0)
+                    {
+                        string nombreReg = ObtenerNombreRegion(region);
+                        string nombreMes = ObtenerNombreMes(mes);
+
+                        temperaturas.Add(new Tuple<string, string, double>(
+                            nombreReg, nombreMes, temperatura
+                        ));
+                    }
                 }
             }
 
@@ -149,17 +153,18 @@ namespace ActividadEvaluada
             }
 
             // Llenar listBox1 (menor a mayor)
+            listBox1.Items.Clear();
             for (int i = 0; i < temperaturas.Count; i++)
             {
                 listBox1.Items.Add($"{temperaturas[i].Item1} - {temperaturas[i].Item2}: {temperaturas[i].Item3}°C");
             }
 
             // Llenar listBox2 (mayor a menor)
+            listBox2.Items.Clear();
             for (int i = temperaturas.Count - 1; i >= 0; i--)
             {
                 listBox2.Items.Add($"{temperaturas[i].Item1} - {temperaturas[i].Item2}: {temperaturas[i].Item3}°C");
             }
-
             // Calcular promedios
             double promedioTemperatura = 0;
             double promedioPrecipitacion = 0;
@@ -210,6 +215,11 @@ namespace ActividadEvaluada
         private void btnRegresar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

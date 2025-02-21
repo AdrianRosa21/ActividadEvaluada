@@ -37,7 +37,7 @@ namespace ActividadEvaluada
             DeclararBoton(btnCalcular, Color.FromArgb(173, 216, 230)); // Azul pastel
             DeclararBoton(btnRegresar, Color.FromArgb(255, 204, 204)); // Rosa pastel
             cmbRegiones.SelectedIndex = 0;
-            logo.Image = Image.FromFile("C:\\Users\\adrian.rosa\\Source\\Repos\\ActividadEvaluada\\Imagenes\\grafico.png");
+            logo.Image = Image.FromFile("C:\\Users\\dell.ARRUPE\\source\\repos\\ActividadEvaluada\\Imagenes\\grafico.png");
             logo.SizeMode = PictureBoxSizeMode.StretchImage;
         }
         private void DeclararBoton(Button boton, Color colorFondo)

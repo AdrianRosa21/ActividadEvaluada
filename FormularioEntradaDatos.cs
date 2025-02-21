@@ -81,14 +81,21 @@ namespace ActividadEvaluada
             
             if (!double.TryParse(txtTemperatura.Text, out double temperatura))
             {
-                MessageBox.Show("Ingrese una temperatura válida.");
+                MessageBox.Show("Ingrese una temperatura válida.","Advertencia", MessageBoxButtons.OK,MessageBoxIcon.Warning);
                 return;
             }
 
             // Validar que la precipitación sea un número valida si no se puede convertir 
             if (!double.TryParse(txtPrecipitacion.Text, out double precipitacion))
             {
-                MessageBox.Show("Ingrese una precipitacion válida.");
+                MessageBox.Show("Ingrese una precipitacion válida.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            //Validar que la precitipacion no sea menos a 0
+            if (precipitacion < 0)
+            {
+                MessageBox.Show("Ingrese una precipitacion valida", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
